@@ -9,14 +9,17 @@ import {
   UsePipes,
   ValidationPipe,
   ParseIntPipe,
-  Put
+  Put,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
 
 @Controller('products')
+@UseGuards(AuthGuard())
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productService: ProductService) { }
 
   @Get()
   getAll(@Query('search') search: Product): Promise<Product[]> {
@@ -42,7 +45,7 @@ export class ProductController {
   @Put('/:id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() product: Product
+    @Body() product: Product,
   ): Promise<Product> {
     return this.productService.updateProduct(id, product);
   }

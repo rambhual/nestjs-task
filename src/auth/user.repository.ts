@@ -4,7 +4,7 @@ import { User } from './user.entity';
 import { AuthCredentialDto } from './dto/auth-credentials.dto';
 import {
   ConflictException,
-  InternalServerErrorException
+  InternalServerErrorException,
 } from '@nestjs/common';
 
 @EntityRepository(User)

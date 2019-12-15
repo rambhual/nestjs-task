@@ -4,16 +4,17 @@ import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
   @Post('/signUp')
   async signUp(
-    @Body(ValidationPipe) authCredentials: AuthCredentialDto
+    @Body(ValidationPipe) authCredentials: AuthCredentialDto,
   ): Promise<void> {
     return await this.authService.createUser(authCredentials);
   }
 
   @Post('/signIn')
-  async signIn(@Body() authCredentials: AuthCredentialDto) {
+  async signIn(@Body() authCredentials: AuthCredentialDto): Promise<{ accessToken: string }> {
     return this.authService.signIn(authCredentials);
   }
+
 }

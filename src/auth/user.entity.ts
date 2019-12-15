@@ -3,7 +3,7 @@ import {
   Unique,
   Entity,
   PrimaryGeneratedColumn,
-  Column
+  Column,
 } from 'typeorm';
 import * as getHash from 'bcryptjs';
 @Entity()

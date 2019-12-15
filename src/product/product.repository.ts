@@ -9,11 +9,11 @@ export class ProductRepository extends Repository<Product> {
       query.andWhere(
         'product.name LIKE :searchProduct OR product.description LIKE :searchProduct',
         {
-          searchProduct: `%${searchProduct}%`
-        }
+          searchProduct: `%${searchProduct}%`,
+        },
       );
     }
-    const products = await query.getMany();
+    const products = query.getMany();
     return products;
   }
 }

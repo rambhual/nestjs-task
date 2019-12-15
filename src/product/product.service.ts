@@ -5,7 +5,7 @@ import { Product, Status } from './product.entity';
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectRepository(ProductRepository) private repository: ProductRepository
+    @InjectRepository(ProductRepository) private repository: ProductRepository,
   ) {}
 
   async getProducts(search: Product): Promise<Product[]> {
