@@ -6,7 +6,7 @@ describe('Task Controller', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TaskController],
+      controllers: [TaskController]
     }).compile();
 
     controller = module.get<TaskController>(TaskController);

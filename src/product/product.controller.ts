@@ -9,7 +9,7 @@ import {
   UsePipes,
   ValidationPipe,
   ParseIntPipe,
-  Put,
+  Put
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
@@ -42,7 +42,7 @@ export class ProductController {
   @Put('/:id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() product: Product,
+    @Body() product: Product
   ): Promise<Product> {
     return this.productService.updateProduct(id, product);
   }

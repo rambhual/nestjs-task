@@ -8,8 +8,8 @@ export class TaskService {
       id: 1,
       title: 'This is open ticket for angular',
       description: 'This is very critical ticket for Audit',
-      status: TaskStatus.OPEN,
-    },
+      status: TaskStatus.OPEN
+    }
   ];
 
   getAllTask(): TaskModel[] {
@@ -21,7 +21,7 @@ export class TaskService {
       id: uuid(),
       title,
       description,
-      status: TaskStatus.OPEN,
+      status: TaskStatus.OPEN
     };
     this.tasks.push(newTask);
     return newTask;

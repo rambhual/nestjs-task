@@ -18,5 +18,5 @@ export class Product extends BaseEntity {
 export enum Status {
   OPEN = 'OPEN',
   PENDING = 'PENDING',
-  CANCELLED = 'CANCELLED',
+  CANCELLED = 'CANCELLED'
 }
