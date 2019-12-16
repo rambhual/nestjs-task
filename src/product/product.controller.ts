@@ -15,6 +15,7 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { ProductService } from './product.service';
 import { Product } from './product.entity';
+import { GetUser } from 'src/auth/get-user.decorator';
 
 @Controller('products')
 @UseGuards(AuthGuard())
@@ -38,8 +39,8 @@ export class ProductController {
 
   @Post()
   @UsePipes(ValidationPipe)
-  addProduct(@Body() body): Promise<Product> {
-    return this.productService.createProduct(body);
+  addProduct(@Body() body, @GetUser() user): Promise<Product> {
+    return this.productService.createProduct(body, user);
   }
 
   @Put('/:id')

@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from 'nestjs-dotenv';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { TaskModule } from './task/task.module';
 import { ProductModule } from './product/product.module';
 import { typeOrmConfig } from './config/typeOrm.config';
@@ -12,9 +13,10 @@ import { AuthModule } from './auth/auth.module';
     TypeOrmModule.forRoot(typeOrmConfig),
     TaskModule,
     ProductModule,
-    AuthModule
+    AuthModule,
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService]
 })
-export class AppModule {}
+export class AppModule { }
